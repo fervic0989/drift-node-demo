@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://github.com/Use-Tusk/drift-node-sdk/raw/main/images/tusk-banner.png" alt="Tusk Drift Banner">
+</p>
+
 # Tusk Drift Demo - Node.js Service
 
 Welcome to the Tusk Drift demo! This repository demonstrates how Tusk Drift automatically generates API tests from real traffic, helping you catch regressions before they reach production.
