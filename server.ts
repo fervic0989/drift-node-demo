@@ -1,4 +1,4 @@
-import { TuskDrift } from './tdInit.ts';
+import { TuskDrift } from './tuskDriftInit.ts';
 import express from 'express';
 import type { Request, Response } from 'express';
 import axios from 'axios';

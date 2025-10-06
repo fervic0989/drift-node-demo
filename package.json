@@ -5,15 +5,15 @@
   "type": "module",
   "main": "server.ts",
   "scripts": {
-    "start": "node --experimental-strip-types server.ts",
-    "start:record": "TUSK_DRIFT_MODE=record node --experimental-strip-types server.ts",
+    "start": "node --import ./tuskDriftInit.ts --experimental-strip-types server.ts",
+    "start:record": "TUSK_DRIFT_MODE=record node --import ./tuskDriftInit.ts --experimental-strip-types server.ts",
     "start:watch": "node --watch --experimental-strip-types server.ts"
   },
   "engines": {
     "node": ">=22.6.0"
   },
   "dependencies": {
-    "@use-tusk/drift-node-sdk": "^0.1.2",
+    "@use-tusk/drift-node-sdk": "^0.1.4",
     "axios": "^1.7.9",
     "express": "^4.21.2"
   },

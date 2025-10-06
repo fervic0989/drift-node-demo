@@ -6,7 +6,7 @@
 
 Welcome to the Tusk Drift demo! This repository demonstrates how Tusk Drift automatically generates API tests from real traffic, helping you catch regressions before they reach production.
 
-**🚀 Get started in under 5 minutes**
+**🚀 Get started in under 2 minutes**
 
 ## What You'll Experience
 
@@ -154,7 +154,7 @@ curl http://localhost:3000/api/user/1
 curl http://localhost:3000/api/post/5
 ```
 
-Stop the server with `Ctrl+C`. Your newly recorded traces are now in `.tusk/traces/`!
+Wait a few seconds and then stop the server with `Ctrl+C`. Your newly recorded traces are now in `.tusk/traces/`!
 
 ### 3. View and Replay Tests
 
