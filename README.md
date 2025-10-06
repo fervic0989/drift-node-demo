@@ -92,7 +92,34 @@ git checkout buggy-branch
 tusk run
 ```
 
-This branch introduces a subtle bug by converting the temperature from Celsius to Fahrenheit. Tusk will detect the deviation in the `/api/weather-activity` endpoint and mark the test as failed.
+This branch introduces a subtle bug by converting the temperature from Celsius to Fahrenheit without updating the temperature thresholds used to determine activity recommendations.
+
+Tusk Drift will detect the deviation in the `/api/weather-activity` endpoint and mark the test as failed.
+
+Changes in `buggy-branch`:
+
+```diff
+@@ -8,6 +8,10 @@ const PORT = 3000;
+
+ app.use(express.json());
+
++const convertCelsiusToFahrenheit = (celsius: number) => {
++  return (celsius * 9/5) + 32;
++};
++
+ // GET /api/weather-activity - Get location from IP, weather, and activity recommendations
+ app.get('/api/weather-activity', async (req: Request, res: Response) => {
+   try {
+@@ -24,6 +28,8 @@ app.get('/api/weather-activity', async (req: Request, res: Response) => {
+     );
+     const weather = weatherResponse.data.current_weather;
+
++    weather.temperature = convertCelsiusToFahrenheit(weather.temperature);
++
+     // Business logic: Recommend activity based on weather
+     let recommendedActivity = 'Stay indoors';
+     if (weather.temperature > 20 && weather.windspeed < 20) {
+```
 
 ## How Tusk Drift Works
 
@@ -174,41 +201,11 @@ tusk run
 
 ### Use Tusk on Your Own Service
 
-1. **Install the SDK**: Follow the [Node SDK setup guide](https://github.com/Use-Tusk/drift-node-sdk#installation)
-
-```bash
-npm install @use-tusk/drift-node-sdk
-```
-
-2. **Initialize the SDK**: Create an initialization file
-
-```typescript
-import { TuskDrift } from "@use-tusk/drift-node-sdk";
-
-TuskDrift.initialize({
-  // Optional: No API key needed for local recording and replay. Only required for cloud features.
-  // apiKey: "your-api-key",
-});
-
-export { TuskDrift };
-```
-
-3. **Import at Entry Point**: Load the SDK before your application starts
-
-```typescript
-import { TuskDrift } from './tdInit';
-// ... rest of your imports
-
-// After your server starts listening:
-app.listen(PORT, () => {
-  TuskDrift.markAppAsReady();
-  console.log(`Server running on port ${PORT}`);
-});
-```
-
-4. **Record in staging/dev**: Deploy with recording enabled
-5. **Replay in CI**: Add `tusk run` to your test pipeline
-6. **Catch regressions**: Get notified when API behavior changes
+1. **Initialize a service using the Tusk CLI**: Follow the [Tusk CLI quick start guide](https://github.com/Use-Tusk/tusk-drift-cli?tab=readme-ov-file#quick-start)
+2. **Install the Tusk Drift SDK**: Follow the [Node SDK setup guide](https://github.com/Use-Tusk/drift-node-sdk#installation)
+3. **Record traces**: Capture traffic locally or in dev/staging environments to let Tusk automatically create a test suite
+4. **Replay in CI**: Add `tusk run` to your test pipeline
+5. **Catch regressions**: Get notified via PR comments when API behavior changes
 
 ### Try Tusk Cloud
 
@@ -236,7 +233,7 @@ Tusk supports PII and sensitive data masking. You can:
 
 ### Can I use this in production?
 
-Yes! Use a low sampling rate (e.g., 0.01 for 1%) to minimize overhead. Most teams start by recording in staging/dev environments and then switch to production traffic to capture representative traffic.
+Yes! Use a low sampling rate (e.g., 1-5%) to minimize overhead. Most teams start by recording in staging/dev environments and then switch to production traffic to capture representative traffic.
 
 ### What about non-deterministic data (timestamps, UUIDs)?
 
