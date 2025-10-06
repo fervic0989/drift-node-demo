@@ -92,7 +92,7 @@ git checkout buggy-branch
 tusk run
 ```
 
-This branch introduces a subtle bug in the response format. Tusk will detect the deviation and mark the test as failed, showing you exactly what changed.
+This branch introduces a subtle bug by converting the temperature from Celsius to Fahrenheit. Tusk will detect the deviation in the `/api/weather-activity` endpoint and mark the test as failed.
 
 ## How Tusk Drift Works
 
