@@ -1,0 +1,25 @@
+{
+  "name": "drift-node-demo",
+  "version": "1.0.0",
+  "description": "Demo Node.js app with Tusk Drift integration",
+  "type": "module",
+  "main": "server.ts",
+  "scripts": {
+    "start": "node --experimental-strip-types server.ts",
+    "start:record": "TUSK_DRIFT_MODE=record node --experimental-strip-types server.ts",
+    "start:watch": "node --watch --experimental-strip-types server.ts"
+  },
+  "engines": {
+    "node": ">=22.6.0"
+  },
+  "dependencies": {
+    "@use-tusk/drift-node-sdk": "^0.1.2",
+    "axios": "^1.7.9",
+    "express": "^4.21.2"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.10.2",
+    "typescript": "^5.7.2"
+  }
+}
