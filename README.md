@@ -6,7 +6,7 @@
 
 Welcome to the Tusk Drift demo! This repository demonstrates how Tusk Drift automatically generates API tests from real traffic, helping you catch regressions before they reach production.
 
-**🚀 Get started in under 5 minutes** - no recording setup required!
+**🚀 Get started in under 5 minutes**
 
 ## What You'll Experience
 
@@ -54,7 +54,7 @@ Full installation guide: [Tusk CLI Installation](https://github.com/Use-Tusk/tus
 
 ### 3. Run the Tests
 
-This repository includes **pre-recorded test traces** from real API traffic (in `.tusk/traces`), so you can see Tusk Drift in action immediately without recording anything yourself.
+This repository includes **pre-recorded test traces** from real API traffic (in `.tusk/traces/`), so you can see Tusk Drift in action immediately without recording anything yourself.
 
 ```bash
 # Run all pre-recorded API tests
@@ -69,7 +69,7 @@ You should see output showing tests running against the Express server with dete
 
 ## What's Happening Under the Hood?
 
-This demo includes:
+This demo repo includes:
 
 - **Express.js Server** (`server.ts`) - API service with multiple external integrations
 - **Pre-recorded Traces** (`.tusk/traces/`) - Real API call recordings in JSONL format
@@ -124,14 +124,13 @@ The CLI replays recorded traces against your service:
 - `tusk list` - List available traces
 - `tusk run` - Replay local traces
 
-
 ### 3. **Tusk Cloud** (Optional)
 
 Cloud features include:
 
 - **Automatic Test Suite Creation**: Intelligently selects representative traces from user traffic
 - **CI/CD Integration**: Run tests in GitHub Actions, GitLab CI, etc. with PR comments showing test results
-- **Deviation Classification**: AI-powered classification of failing tests as intended/unintended + auto-fixes
+- **Deviation Classification**: AI-powered classification of failing tests as either intended or unintended + auto-fixes
 - **Test Maintenance**: Automatically updates/removes outdated tests
 
 ## Recording Your Own Tests
