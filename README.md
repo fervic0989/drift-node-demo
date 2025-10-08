@@ -17,12 +17,28 @@ This demo includes a simple Express.js API service that integrates with external
 3. 📚 Learn how to record your own tests from real traffic
 4. ☁️ Discover Tusk Cloud's intelligent test suite management
 
-## Prerequisites
+## Two Ways to Use Tusk
 
-- Node.js v22.6.0+ (we recommend using [nvm](https://github.com/nvm-sh/nvm))
-- npm
+Both use the same open-source CLI and SDK. This demo shows the **standalone workflow**.
+
+### Standalone
+
+Record traces locally, save them to `.tusk/traces/`, and replay with `tusk run`. You manage which traces to keep.
+
+**Saves time vs. writing API tests manually.**
+
+### With Tusk Cloud
+
+Record from dev/production (at low sampling rates), and Cloud handles trace curation automatically. When you run `tusk run` in CI, it pulls your curated suite from Cloud and reports results. If tests fail, you get PR comments showing what changed and suggested fixes.
+
+**A self-maintaining API test suite based on actual traffic.**
 
 ## Quick Start
+
+### Prerequisites
+
+- Node.js v22.18.0+ (we recommend using [nvm](https://github.com/nvm-sh/nvm))
+- npm
 
 ### 1. Clone and Install
 
@@ -153,7 +169,9 @@ The CLI replays recorded traces against your service:
 
 ### 3. **Tusk Cloud** (Optional)
 
-Cloud features include:
+Tusk Cloud adds automated trace curation and failure analysis on top of the open-source CLI/SDK.
+
+Features include:
 
 - **Automatic Test Suite Creation**: Intelligently selects representative traces from user traffic
 - **CI/CD Integration**: Run tests in GitHub Actions, GitLab CI, etc. with PR comments showing test results
@@ -167,6 +185,7 @@ This demo uses pre-recorded traces, but you can record new ones for this service
 ### 1. Start in Record Mode
 
 ```bash
+git checkout main
 npm run start:record
 ```
 
