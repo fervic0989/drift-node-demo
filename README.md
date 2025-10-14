@@ -133,8 +133,8 @@ Changes in `buggy-branch`:
 +    weather.temperature = convertCelsiusToFahrenheit(weather.temperature);
 +
      // Business logic: Recommend activity based on weather
-     let recommendedActivity = 'Stay indoors';
-     if (weather.temperature > 20 && weather.windspeed < 20) {
+     let recommendedActivity = 'Play a board game';
+     if (weather.temperature > 40) {
 ```
 
 ## How Tusk Drift Works
