@@ -2,6 +2,13 @@
   <img src="https://github.com/Use-Tusk/drift-node-sdk/raw/main/images/tusk-banner.png" alt="Tusk Drift Banner">
 </p>
 
+<div align="center">
+
+[![X URL](https://img.shields.io/twitter/url?url=https%3A%2F%2Fx.com%2Fusetusk&style=flat&logo=x&label=Tusk&color=BF40BF)](https://x.com/usetusk)
+[![Slack URL](https://img.shields.io/badge/slack-badge?style=flat&logo=slack&label=Tusk&color=BF40BF)](https://join.slack.com/t/tusk-community/shared_invite/zt-3fve1s7ie-NAAUn~UpHsf1m_2tdoGjsQ)
+
+</div>
+
 # Tusk Drift Demo - Node.js Service
 
 Welcome to the Tusk Drift demo! This repository demonstrates how Tusk Drift automatically generates API tests from real traffic, helping you catch regressions before they reach production.
@@ -276,6 +283,10 @@ Tusk Drift:
 - [Tusk CLI Repository](https://github.com/Use-Tusk/tusk-drift-cli)
 - [Node SDK Repository](https://github.com/Use-Tusk/drift-node-sdk)
 - [Documentation](https://docs.usetusk.ai)
+
+## Community
+
+Join our open source community on [Slack](https://join.slack.com/t/tusk-community/shared_invite/zt-3fve1s7ie-NAAUn~UpHsf1m_2tdoGjsQ).
 
 ## Support
 
